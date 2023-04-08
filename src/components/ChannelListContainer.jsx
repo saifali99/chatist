@@ -39,7 +39,7 @@ const customChannelMessagingFilter = (channels) => {
   return channels.filter((channel) => channel.type === 'messaging');
 }
 
-const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEditing }) => {
+const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEditing, setToggleContainer }) => {
   const { client } = useChatContext();
 
   const logout = () => {
@@ -73,11 +73,15 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
               setIsCreating={setIsCreating} 
               setCreateType={setCreateType} 
               setIsEditing={setIsEditing}
+              setToggleContainer={setToggleContainer}
             />
           )}
           Preview={(previewProps) => (
             <TeamChannelPreview 
               {...previewProps} 
+              setIsCreating={setIsCreating} 
+              setIsEditing={setIsEditing}
+              setToggleContainer={setToggleContainer}
               type="team" 
             />
           )}
@@ -93,11 +97,15 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
               setIsCreating={setIsCreating} 
               setCreateType={setCreateType} 
               setIsEditing={setIsEditing}
+              setToggleContainer={setToggleContainer}
             />
           )}
           Preview={(previewProps) => (
             <TeamChannelPreview 
               {...previewProps} 
+              setIsCreating={setIsCreating} 
+              setIsEditing={setIsEditing}
+              setToggleContainer={setToggleContainer}
               type="messaging" 
             />
           )}
